@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/year 3 notes/Semester 2/Android_Lab1/app/src/main/res/layout/activity_main.xml" value="0.21" />
         <entry key="..\:/year 3 notes/Semester 2/Android_Lab1/app/src/main/res/layout/activity_registraion.xml" value="0.184375" />
+        <entry key="..\:/year 3 notes/Semester 2/Android_Lab1/app/src/main/res/layout/activity_student_list.xml" value="0.16197916666666667" />
+        <entry key="..\:/year 3 notes/Semester 2/Android_Lab1/app/src/main/res/layout/student_view.xml" value="0.33" />
       </map>
     </option>
   </component>
@@ -16,5 +18,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.33" />
+      </ProjectState>
+    </option>
   </component>
 </project>

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab1">
         <activity
+            android:name=".Student_List"
+            android:exported="true" />
+        <activity
             android:name=".Registraion_Activity"
             android:exported="true" />
         <activity android:name=".MainActivity">
