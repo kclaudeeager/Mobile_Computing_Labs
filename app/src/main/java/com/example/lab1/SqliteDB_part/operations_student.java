@@ -58,6 +58,18 @@ public class operations_student extends SQLiteOpenHelper {
         }
         return student_models;
     }
+    public void UpdateStudent(Student_model student_model){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // on below line we are creating a
+        // variable for content values.
+        ContentValues values = new ContentValues();
+        values.put(Firstname,student_model.getFname());
+        values.put(Lastname,student_model.getLname());
+        values.put(Department,student_model.getDepartement());
+        db.update(TABLE_NAME, values, "RegNo= ?", new String[]{""+student_model.getRegno()});
+        Toast.makeText(context, "student is updated", Toast.LENGTH_SHORT).show();
+    }
     public void addStudent(Student_model student_model) {
 
         SQLiteDatabase db = this.getWritableDatabase();
