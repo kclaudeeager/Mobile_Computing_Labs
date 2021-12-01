@@ -15,7 +15,7 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 
 public class Student_List extends AppCompatActivity {
-    RecyclerView studentRecycler;
+   static RecyclerView studentRecycler;
    ArrayList<Student_model> Students=new ArrayList<>();
    Student_model student_model;
    StudentAdapter studentAdapter;
@@ -42,8 +42,12 @@ public class Student_List extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(myIntent);
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Student_List.this.finish();
+
+        }
         return true;
     }
+
 }
