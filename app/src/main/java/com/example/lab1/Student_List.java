@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.lab1.SqliteDB_part.operations_student;
+
 import java.util.ArrayList;
 
 public class Student_List extends AppCompatActivity {
@@ -19,6 +21,7 @@ public class Student_List extends AppCompatActivity {
    ArrayList<Student_model> Students=new ArrayList<>();
    Student_model student_model;
    StudentAdapter studentAdapter;
+    private operations_student dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,10 @@ public class Student_List extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("List of students");
        // student_model=(Student_model) getIntent().getSerializableExtra("Student");
+        dbHandler=new operations_student(this);
+
+        ArrayList<Student_model> student_models=dbHandler.FetchStudents();
+        Student_model.Students=student_models;
         if(Student_model.getStudents()!=null)
         for(Student_model student_model:Student_model.getStudents()){
             Log.d("Fname: ",student_model.getFname());

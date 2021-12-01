@@ -26,7 +26,7 @@ public class StudentViewHolder extends RecyclerView.ViewHolder {
         regno=(TextView) itemView.findViewById(R.id.reg_number);
         department=(TextView) itemView.findViewById(R.id.dept);
         edit=(Button) itemView.findViewById(R.id.edit);
-           student_models=Student_model.getStudents();
+        student_models=Student_model.getStudents();
         delete=(Button) itemView.findViewById(R.id.delete);
           dbHandler = new operations_student(((Button) itemView.findViewById(R.id.delete)).getContext());
         delete.setOnClickListener(new View.OnClickListener() {
@@ -34,8 +34,9 @@ public class StudentViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View v) {
                 Log.d("delete:",regno.getText().toString());
                      dbHandler.deleteStudent(regno.getText().toString());
-                     for(Student_model student:student_models){
-                         if(student.getRegno().equals(regno.getText().toString())){
+                     for(int i=0;i<student_models.size();i++){
+                         Student_model student=student_models.get(i);
+                         if(student.getRegno()==(Integer.parseInt(regno.getText().toString()))){
                              student_models.remove(student);
                              studentAdapter=new StudentAdapter(student_models);
                              studentAdapter.notifyDataSetChanged();
@@ -52,7 +53,8 @@ public class StudentViewHolder extends RecyclerView.ViewHolder {
     public void BindStudent(final Student_model student){
         fname.setText(student.getFname());
         lname.setText(student.getLname());
-        regno.setText(student.getRegno());
+        String reg=""+student.getRegno();
+        regno.setText(reg);
         department.setText(student.getDepartement());
     }
 

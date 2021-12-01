@@ -43,7 +43,7 @@ public class Registraion_Activity extends AppCompatActivity {
            public void onClick(View v) {
                if (fname.getText().length() >= 1 && lname.getText().length() >= 1 && regno.getText().length() >= 1 && departement.getText().length() >= 1) {
 
-                   finalstudent_model = new Student_model(fname.getText().toString(), lname.getText().toString(), regno.getText().toString(), departement.getText().toString());
+                   finalstudent_model = new Student_model(fname.getText().toString(), lname.getText().toString(), Integer.parseInt(regno.getText().toString()), departement.getText().toString());
                    Students.add(finalstudent_model);
                    finalstudent_model.setStudents(Students);
                    dbHandler.addStudent(finalstudent_model);

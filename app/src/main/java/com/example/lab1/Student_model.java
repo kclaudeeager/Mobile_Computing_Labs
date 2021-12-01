@@ -1,13 +1,13 @@
 package com.example.lab1;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Student_model  {
-    String fname,lname,regno,departement;
+    String fname,lname,departement;
+    int regno;
    static ArrayList<Student_model> Students;
 
-    public Student_model(String regno) {
+    public Student_model(int regno) {
         this.regno = regno;
     }
 
@@ -23,7 +23,7 @@ public class Student_model  {
         this.lname = lname;
     }
 
-    public void setRegno(String regno) {
+    public void setRegno(int regno) {
         this.regno = regno;
     }
 
@@ -31,7 +31,7 @@ public class Student_model  {
         this.departement = departement;
     }
 
-    public Student_model(String regno, String departement) {
+    public Student_model(int regno, String departement) {
         this.regno = regno;
         this.departement = departement;
     }
@@ -44,7 +44,7 @@ public class Student_model  {
         return lname;
     }
 
-    public String getRegno() {
+    public int getRegno() {
         return regno;
     }
 
@@ -62,7 +62,7 @@ public class Student_model  {
         return departement;
     }
 
-    public Student_model(String fname, String lname, String regno, String departement) {
+    public Student_model(String fname, String lname, int regno, String departement) {
         this.fname = fname;
         this.lname = lname;
         this.regno = regno;

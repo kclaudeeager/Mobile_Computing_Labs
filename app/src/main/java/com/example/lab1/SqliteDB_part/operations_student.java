@@ -3,12 +3,15 @@ package com.example.lab1.SqliteDB_part;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.example.lab1.Student_model;
+
+import java.util.ArrayList;
 
 public class operations_student extends SQLiteOpenHelper {
     private static final int DB_VERSION=1;
@@ -39,6 +42,22 @@ public class operations_student extends SQLiteOpenHelper {
 
         db.execSQL(query);
     }
+    public ArrayList<Student_model> FetchStudents(){
+        ArrayList<Student_model> student_models=new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        //ArrayList<String> array_list = new ArrayList<String>();
+        Cursor res = db.rawQuery( "select * from "+TABLE_NAME, null );
+        res.moveToFirst();
+        while(res.isAfterLast()==false) {
+            String fname=res.getString(res.getColumnIndex(Firstname));
+            String lname=res.getString(res.getColumnIndex(Lastname));
+            int regno=res.getInt(res.getColumnIndex(RegNo));
+            String depart=res.getString(res.getColumnIndex(Department));
+            student_models.add(new Student_model(fname,lname,regno,depart));
+            res.moveToNext();
+        }
+        return student_models;
+    }
     public void addStudent(Student_model student_model) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -46,17 +65,26 @@ public class operations_student extends SQLiteOpenHelper {
         // on below line we are creating a
         // variable for content values.
         ContentValues values = new ContentValues();
+        ArrayList<Student_model> student_models=FetchStudents();
+        try {
+      for(Student_model st:student_models) {
+          Log.d("Students:",""+st.getRegno());
+          if (st.getRegno() == student_model.getRegno()) {
 
+              Toast.makeText(context, "The user arleady exists!", Toast.LENGTH_SHORT).show();
+              return;
+          }
+      }
 
-        values.put(Firstname,student_model.getFname());
-        values.put(Lastname,student_model.getLname());
-        values.put(RegNo,student_model.getRegno());
-        values.put(Department,student_model.getDepartement());
+              values.put(Firstname,student_model.getFname());
+              values.put(Lastname,student_model.getLname());
+              values.put(RegNo,student_model.getRegno());
+              values.put(Department,student_model.getDepartement());
 
-try {
-    db.insert(TABLE_NAME, null, values);
-    Toast.makeText(context, "student is added", Toast.LENGTH_SHORT).show();
-}
+              db.insert(TABLE_NAME, null, values);
+              Toast.makeText(context, "student is added", Toast.LENGTH_SHORT).show();
+
+      }
 catch (Exception e){
     Log.d("Error:",e.getMessage());
     Toast.makeText(context, "Unable to add a record: "+e.getMessage(), Toast.LENGTH_SHORT).show();
