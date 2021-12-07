@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/fname5"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="First Name"
+        android:inputType="textPersonName"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/lname5"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fname5" />
+
+    <EditText
+        android:id="@+id/regno4"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/white"
+
+        android:ems="10"
+        android:hint="Reg Number"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lname5" />
+
+    <EditText
+        android:id="@+id/departement4"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="36dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="Departement"
+
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regno4" />
+
+    <Button
+        android:id="@+id/submit4"
+        android:layout_width="259dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="324dp"
+        android:text="Update"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/departement4" />
+</androidx.constraintlayout.widget.ConstraintLayout>
