@@ -51,29 +51,35 @@ public class Registraion_Activity extends AppCompatActivity {
            Student_model finalstudent_model=student_model;
            @Override
            public void onClick(View v) {
-               if (fname.getText().length() >= 1 && lname.getText().length() >= 1 && regno.getText().length() >= 1 && departement.getText().length() >= 1) {
+               try {
+                   if (fname.getText().length() >= 1 && lname.getText().length() >= 1 && regno.getText().length() >= 1 && departement.getText().length() >= 1) {
 
-                   finalstudent_model = new Student_model(fname.getText().toString(), lname.getText().toString(), Integer.parseInt(regno.getText().toString()), departement.getText().toString());
-                   Students.add(finalstudent_model);
-                   finalstudent_model.setStudents(Students);
-                   dbHandler.addStudent(finalstudent_model);
-                   SendStudentData(fname.getText().toString(), lname.getText().toString(),regno.getText().toString(), departement.getText().toString());
-                   fname.getText().clear();
-                   lname.getText().clear();
-                   regno.getText().clear();
-                   departement.getText().clear();
-                   // startActivity(intent);
+                       finalstudent_model = new Student_model(fname.getText().toString(), lname.getText().toString(), Integer.parseInt(regno.getText().toString()), departement.getText().toString());
+                       Students.add(finalstudent_model);
+                       finalstudent_model.setStudents(Students);
+                       dbHandler.addStudent(finalstudent_model);
+                       SendStudentData(fname.getText().toString(), lname.getText().toString(), regno.getText().toString(), departement.getText().toString());
+                       fname.getText().clear();
+                       lname.getText().clear();
+                       regno.getText().clear();
+                       departement.getText().clear();
+
+
+                       // startActivity(intent);
+                   } else {
+                       if (fname.getText().length() < 1)
+                           fname.setError("First name is required");
+                       if (lname.getText().length() < 1)
+                           lname.setError("Last name is required");
+                       if (regno.getText().length() < 1)
+                           regno.setError("Reg number is required");
+                       if (departement.getText().length() < 1)
+                           departement.setError("Department name is required");
+                   }
+               } catch (NumberFormatException e) {
+                   e.printStackTrace();
                }
-               else{
-                if(fname.getText().length()<1)
-                    fname.setError("First name is required");
-                   if(lname.getText().length()<1)
-                       lname.setError("Last name is required");
-                   if(regno.getText().length()<1)
-                       regno.setError("Reg number is required");
-                   if(departement.getText().length()<1)
-                       departement.setError("Department name is required");
-               }
+
            }
 
        });

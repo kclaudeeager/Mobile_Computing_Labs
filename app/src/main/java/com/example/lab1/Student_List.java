@@ -49,9 +49,16 @@ public class Student_List extends AppCompatActivity {
         for(Student_model student_model:Student_model.getStudents()){
             Log.d("Fname: ",student_model.getFname());
             Students.add(student_model);
+
         }
 
+
         loadList();
+//        studentRecycler=(RecyclerView) findViewById(R.id.St_list);
+//        studentAdapter=new StudentAdapter(Students,Student_List.this);
+//        studentRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+//        studentRecycler.setVerticalScrollBarEnabled(true);
+//        studentRecycler.setAdapter(studentAdapter);
     }
 
 
@@ -127,11 +134,7 @@ public class Student_List extends AppCompatActivity {
                                     Log.d("Fname: ",student_model.getFname());
                                     Students.add(student_model);
                                 }
-                            studentRecycler=(RecyclerView) findViewById(R.id.St_list);
-                            studentAdapter=new StudentAdapter(Students);
-                            studentRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                            studentRecycler.setVerticalScrollBarEnabled(true);
-                            studentRecycler.setAdapter(studentAdapter);
+
                         }
                         catch(Exception e){
 
@@ -154,7 +157,11 @@ public class Student_List extends AppCompatActivity {
         for(Student_model student_model1:students)
             Log.d("st1:",student_model1.toString());
 
-
+        studentRecycler=(RecyclerView) findViewById(R.id.St_list);
+        studentAdapter=new StudentAdapter(Students,Student_List.this);
+        studentRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        studentRecycler.setVerticalScrollBarEnabled(true);
+        studentRecycler.setAdapter(studentAdapter);
     }
 
 }

@@ -3,39 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:background="@drawable/muhabura"
+    android:layout_height="wrap_content">
 
     <EditText
-        android:id="@+id/fname5"
-        android:layout_width="290dp"
-        android:layout_height="52dp"
+        android:id="@+id/edfname"
+        android:layout_width="232dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
         android:background="@color/white"
         android:ems="10"
+
         android:hint="First Name"
         android:inputType="textPersonName"
-
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.586"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
-        android:id="@+id/lname5"
-        android:layout_width="290dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/edlname"
+        android:layout_width="235dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="36dp"
         android:background="@color/white"
         android:ems="10"
         android:hint="Last Name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.596"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fname5" />
+        app:layout_constraintTop_toBottomOf="@+id/edfname" />
 
     <EditText
-        android:id="@+id/regno4"
-        android:layout_width="290dp"
-        android:layout_height="52dp"
+        android:id="@+id/edregno"
+        android:layout_width="235dp"
+        android:layout_height="36dp"
         android:layout_marginTop="28dp"
         android:background="@color/white"
 
@@ -43,35 +46,46 @@
         android:hint="Reg Number"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.619"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lname5" />
+        app:layout_constraintTop_toBottomOf="@+id/edlname" />
 
     <EditText
-        android:id="@+id/departement4"
-        android:layout_width="290dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="36dp"
+        android:id="@+id/eddepartement"
+        android:layout_width="228dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="28dp"
         android:background="@color/white"
         android:ems="10"
         android:hint="Departement"
 
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.595"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regno4" />
+        app:layout_constraintTop_toBottomOf="@+id/edregno" />
 
     <Button
-        android:id="@+id/submit4"
+        android:id="@+id/update"
         android:layout_width="259dp"
         android:layout_height="62dp"
-        android:layout_marginBottom="324dp"
+        android:layout_marginTop="24dp"
         android:text="Update"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.644"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/departement4" />
+        app:layout_constraintTop_toBottomOf="@+id/eddepartement" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="166dp"
+        android:layout_height="38dp"
+        android:text="Edit this student"
+        android:textSize="16dp"
+        android:textColor="@color/white"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
